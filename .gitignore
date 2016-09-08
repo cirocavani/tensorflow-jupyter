@@ -1,0 +1,7 @@
+/deps/conda2
+/deps/tensorflow-0.10
+/notebooks/.ipynb_checkpoints
+/data/kernels/
+/data/runtime/
+/data/nbsignatures.db
+/data/notebook_secret
