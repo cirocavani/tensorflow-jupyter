@@ -1,6 +1,7 @@
-/deps/conda2
-/deps/tensorflow-0.10
-/notebooks/.ipynb_checkpoints
+/deps/conda2/
+/deps/tensorflow-0.10/
+/workspace/.ipynb_checkpoints/
+/workspace/MNIST/
 /data/kernels/
 /data/runtime/
 /data/nbsignatures.db

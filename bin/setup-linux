@@ -22,18 +22,18 @@ $CONDA_HOME/bin/pip install jupyter
 rm -rf $TENSORFLOW_HOME
 
 $CONDA_HOME/bin/conda create -y -p $TENSORFLOW_HOME python=2.7
-$TENSORFLOW_HOME/bin/pip install --ignore-installed --upgrade https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.10.0-cp27-none-linux_x86_64.whl
-$TENSORFLOW_HOME/bin/pip install ipython
+$TENSORFLOW_HOME/bin/pip install https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.10.0-cp27-none-linux_x86_64.whl
+$TENSORFLOW_HOME/bin/pip install ipykernel
 
 mkdir -p $JUPYTER_DATA_DIR/kernels/tensorflow-py2
 
 echo "{
- \"display_name\": \"TensorFlow CPU 0.10 (Python 2)\",
+ \"display_name\": \"TensorFlow 0.10 (CPU, Python 2)\",
  \"language\": \"python\",
  \"argv\": [
   \"$TENSORFLOW_HOME/bin/python\",
-  \"-m\",
-  \"IPython.kernel\",
+  \"-c\",
+  \"from ipykernel.kernelapp import main; main()\",
   \"-f\",
   \"{connection_file}\"
  ]
