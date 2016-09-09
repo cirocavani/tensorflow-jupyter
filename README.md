@@ -1,6 +1,6 @@
 # TensorFlow Jupyter
 
-Ambiente de desenvolvimento com Jupyter para TensorFlow.
+Ambiente de desenvolvimento para TensorFlow com Jupyter.
 
 ...
 
