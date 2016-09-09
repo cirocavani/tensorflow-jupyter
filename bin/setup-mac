@@ -28,7 +28,7 @@ $TENSORFLOW_HOME/bin/pip install ipykernel
 mkdir -p $JUPYTER_DATA_DIR/kernels/tensorflow-py2
 
 echo "{
- \"display_name\": \"TensorFlow CPU 0.10 (CPU, Python 2)\",
+ \"display_name\": \"TensorFlow 0.10 (CPU, Python 2)\",
  \"language\": \"python\",
  \"argv\": [
   \"$TENSORFLOW_HOME/bin/python\",
