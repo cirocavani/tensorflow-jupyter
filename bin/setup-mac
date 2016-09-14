@@ -25,7 +25,7 @@ $CONDA_HOME/bin/conda create -y -p $TENSORFLOW_HOME python=2.7
 $TENSORFLOW_HOME/bin/pip install https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-0.10.0-py2-none-any.whl
 $TENSORFLOW_HOME/bin/pip install ipykernel
 
-mkdir -p $JUPYTER_DATA_DIR/kernels/tensorflow-py2
+mkdir -p $JUPYTER_DATA_DIR/kernels/tensorflow-0.10-py2
 
 echo "{
  \"display_name\": \"TensorFlow 0.10 (CPU, Python 2)\",
@@ -37,4 +37,4 @@ echo "{
   \"-f\",
   \"{connection_file}\"
  ]
-}" > $JUPYTER_DATA_DIR/kernels/tensorflow-py2/kernel.json
+}" > $JUPYTER_DATA_DIR/kernels/tensorflow-0.10-py2/kernel.json
