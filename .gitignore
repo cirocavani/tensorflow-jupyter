@@ -4,7 +4,4 @@
 /data/runtime/
 /data/nbsignatures.db
 /data/notebook_secret
-/workspace/.ipynb_checkpoints/
-/workspace/MNIST/
-/workspace/iris/
-/workspace/census/
+**/.ipynb_checkpoints/

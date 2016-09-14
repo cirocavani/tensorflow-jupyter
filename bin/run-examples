@@ -1,0 +1,10 @@
+#!/bin/bash
+set -eu
+
+cd `dirname "$0"`/..
+source conf/env.sh
+
+for i in workspace/Examples/*.ipynb; do
+  echo "Running $i..."
+  $CONDA_HOME/bin/jupyter nbconvert "$i" --to notebook --inplace --execute --ExecutePreprocessor.timeout=3600
+done
