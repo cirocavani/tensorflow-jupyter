@@ -4,10 +4,10 @@ Ambiente de desenvolvimento para TensorFlow com Jupyter.
 
 ...
 
-Setup Local do Projeto:
+Setup do Projeto:
 
-    #bin/setup-mac.sh
-    bin/setup-linux.sh
+    #./setup-mac.sh
+    ./setup-linux.sh
 
 Executando o Jupyter:
 
