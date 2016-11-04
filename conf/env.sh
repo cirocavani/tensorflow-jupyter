@@ -2,8 +2,8 @@
 set -eu
 
 export PROJECT_HOME=$(pwd)
-export CONDA_HOME=$PROJECT_HOME/deps/conda2
-export TENSORFLOW_HOME=$PROJECT_HOME/deps/tensorflow-0.10
+export CONDA_HOME=$PROJECT_HOME/deps/conda3
+export TENSORFLOW_HOME=$PROJECT_HOME/deps/tensorflow-0.11
 
 export JUPYTER_DATA_DIR=$PROJECT_HOME/data
 

@@ -8,27 +8,31 @@ source conf/env.sh
 
 rm -rf $CONDA_HOME
 
-curl -k -L -O https://repo.continuum.io/miniconda/Miniconda2-latest-MacOSX-x86_64.sh
+curl -k -L -O https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
 
-chmod +x Miniconda2-latest-MacOSX-x86_64.sh
+chmod +x Miniconda3-latest-MacOSX-x86_64.sh
 
-./Miniconda2-latest-MacOSX-x86_64.sh -b -f -p $CONDA_HOME
-rm -f Miniconda2-latest-MacOSX-x86_64.sh
+./Miniconda3-latest-MacOSX-x86_64.sh -b -f -p $CONDA_HOME
+rm -f Miniconda3-latest-MacOSX-x86_64.sh
 
+$CONDA_HOME/bin/pip install --upgrade pip
+
+rm -rf $JUPYTER_DATA_DIR
+mkdir -p $JUPYTER_DATA_DIR
 $CONDA_HOME/bin/pip install jupyter
 
-# TensorFlow 0.10 (TensorBoard)
+# TensorFlow 0.11 (TensorBoard)
 
 rm -rf $TENSORFLOW_HOME
 
 $CONDA_HOME/bin/conda create -y -p $TENSORFLOW_HOME python=2.7
-$TENSORFLOW_HOME/bin/pip install https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-0.10.0-py2-none-any.whl
+$TENSORFLOW_HOME/bin/pip install https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-0.11.0rc2-py2-none-any.whl
 $TENSORFLOW_HOME/bin/pip install ipykernel
 
-mkdir -p $JUPYTER_DATA_DIR/kernels/tensorflow-0.10-py2
+mkdir -p $JUPYTER_DATA_DIR/kernels/tensorflow-0.11-py2
 
 echo "{
- \"display_name\": \"TensorFlow 0.10 (CPU, Python 2)\",
+ \"display_name\": \"TensorFlow 0.11 (CPU, Python 2)\",
  \"language\": \"python\",
  \"argv\": [
   \"$TENSORFLOW_HOME/bin/python\",
@@ -37,4 +41,4 @@ echo "{
   \"-f\",
   \"{connection_file}\"
  ]
-}" > $JUPYTER_DATA_DIR/kernels/tensorflow-0.10-py2/kernel.json
+}" > $JUPYTER_DATA_DIR/kernels/tensorflow-0.11-py2/kernel.json

@@ -1,11 +1,8 @@
-/data/kernels/
-/data/runtime/
-/data/nbsignatures.db
-/data/notebook_secret
+/data/
 **/.ipynb_checkpoints/
 
-/deps/conda2/
-/deps/tensorflow-0.10/
+/deps/conda3/
+/deps/tensorflow-0.11/
 
 /deps/pyspark/
-/deps/spark-2.0.0-bin-hadoop2.4/
+/deps/spark-2.0.1-bin-hadoop2.7/
