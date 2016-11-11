@@ -26,7 +26,7 @@ $CONDA_HOME/bin/pip install jupyter
 rm -rf $TENSORFLOW_HOME
 
 $CONDA_HOME/bin/conda create -y -p $TENSORFLOW_HOME python=2.7
-$TENSORFLOW_HOME/bin/pip install https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-0.11.0rc2-py2-none-any.whl
+$TENSORFLOW_HOME/bin/pip install https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-0.11.0-py2-none-any.whl
 $TENSORFLOW_HOME/bin/pip install ipykernel
 $TENSORFLOW_HOME/bin/pip install matplotlib
 $TENSORFLOW_HOME/bin/pip install sklearn
