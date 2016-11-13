@@ -37,9 +37,6 @@ mkdir -p $JUPYTER_DATA_DIR/kernels/tensorflow-0.11-py2
 echo "{
  \"display_name\": \"TensorFlow 0.11 (CPU, Python 2)\",
  \"language\": \"python\",
- \"env\": {
-  \"PYTHONSTARTUP\": \"$PROJECT_HOME/conf/tensorflow-py2.py\"
- },
  \"argv\": [
   \"$TENSORFLOW_HOME/bin/python\",
   \"-c\",
