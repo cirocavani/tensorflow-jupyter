@@ -10,9 +10,7 @@ rm -rf $CONDA_HOME
 
 curl -k -L -O https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
 
-chmod +x Miniconda3-latest-Linux-x86_64.sh
-
-./Miniconda3-latest-Linux-x86_64.sh -b -f -p $CONDA_HOME
+bash Miniconda3-latest-Linux-x86_64.sh -b -f -p $CONDA_HOME
 rm -f Miniconda3-latest-Linux-x86_64.sh
 
 $CONDA_HOME/bin/pip install --upgrade pip
@@ -21,21 +19,21 @@ rm -rf $JUPYTER_DATA_DIR
 mkdir -p $JUPYTER_DATA_DIR
 $CONDA_HOME/bin/pip install jupyter
 
-# TensorFlow 0.11 (TensorBoard)
+# TensorFlow 1.0 (TensorBoard)
 
 rm -rf $TENSORFLOW_HOME
 
-$CONDA_HOME/bin/conda create -y -p $TENSORFLOW_HOME python=2.7
-$TENSORFLOW_HOME/bin/pip install https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.11.0-cp27-none-linux_x86_64.whl
+$CONDA_HOME/bin/conda create -y -p $TENSORFLOW_HOME python=3.6
+$TENSORFLOW_HOME/bin/pip install https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.0.0-cp36-cp36m-linux_x86_64.whl
 $TENSORFLOW_HOME/bin/pip install ipykernel
 $TENSORFLOW_HOME/bin/pip install matplotlib
 $TENSORFLOW_HOME/bin/pip install sklearn
 $TENSORFLOW_HOME/bin/pip install scipy
 
-mkdir -p $JUPYTER_DATA_DIR/kernels/tensorflow-0.11-py2
+mkdir -p $JUPYTER_DATA_DIR/kernels/tensorflow-1.0-py3
 
 echo "{
- \"display_name\": \"TensorFlow 0.11 (CPU, Python 2)\",
+ \"display_name\": \"TensorFlow 1.0 (CPU, Python 3)\",
  \"language\": \"python\",
  \"argv\": [
   \"$TENSORFLOW_HOME/bin/python\",
@@ -44,4 +42,4 @@ echo "{
   \"-f\",
   \"{connection_file}\"
  ]
-}" > $JUPYTER_DATA_DIR/kernels/tensorflow-0.11-py2/kernel.json
+}" > $JUPYTER_DATA_DIR/kernels/tensorflow-1.0-py3/kernel.json

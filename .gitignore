@@ -1,8 +1,8 @@
-/data/
 **/.ipynb_checkpoints/
 
-/deps/conda3/
-/deps/tensorflow-0.11/
+/software/conda3/
+/software/tensorflow-1.0/
+/software/jupyter_data/
 
-/deps/pyspark/
-/deps/spark-2.0.1-bin-hadoop2.7/
+/software/pyspark/
+/software/spark-2.1.0-bin-hadoop2.7/
