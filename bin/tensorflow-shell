@@ -4,4 +4,4 @@ set -eu
 cd `dirname "$0"`/..
 source conf/env.sh
 
-$CONDA_HOME/bin/jupyter console --kernel=tensorflow-1.0-py3 $@
+$JUPYTER_HOME/bin/jupyter console --kernel=tensorflow-1.0-py3 $@
