@@ -23,12 +23,13 @@ $JUPYTER_HOME/bin/conda install -y jupyter
 
 rm -rf $TENSORFLOW_HOME
 
-$JUPYTER_HOME/bin/conda create -y -p $TENSORFLOW_HOME python=3.6
+$JUPYTER_HOME/bin/conda create -y -p $TENSORFLOW_HOME python=3.5
 $TENSORFLOW_HOME/bin/pip install tensorflow==1.0.0
 $TENSORFLOW_HOME/bin/pip install ipykernel
 $TENSORFLOW_HOME/bin/pip install scikit-learn
 $TENSORFLOW_HOME/bin/pip install matplotlib
 $TENSORFLOW_HOME/bin/pip install scipy
+$TENSORFLOW_HOME/bin/pip install requests
 
 mkdir -p $JUPYTER_DATA_DIR/kernels/tensorflow-1.0-py3
 
