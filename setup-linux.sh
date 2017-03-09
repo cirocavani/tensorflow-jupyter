@@ -24,7 +24,7 @@ $JUPYTER_HOME/bin/conda install -y jupyter
 rm -rf $TENSORFLOW_HOME
 
 $JUPYTER_HOME/bin/conda create -y -p $TENSORFLOW_HOME python=3.5
-$TENSORFLOW_HOME/bin/pip install tensorflow==1.0.0
+$TENSORFLOW_HOME/bin/pip install tensorflow==1.0.1
 $TENSORFLOW_HOME/bin/pip install ipykernel
 $TENSORFLOW_HOME/bin/pip install scikit-learn
 $TENSORFLOW_HOME/bin/pip install matplotlib
