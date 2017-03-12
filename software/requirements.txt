@@ -1,0 +1,7 @@
+tensorflow==1.0.1
+ipykernel
+scikit-learn
+matplotlib
+scipy
+requests
+nltk
