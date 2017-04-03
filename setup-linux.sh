@@ -24,7 +24,8 @@ $JUPYTER_HOME/bin/conda install -y jupyter
 rm -rf $TENSORFLOW_HOME
 
 $JUPYTER_HOME/bin/conda create -y -p $TENSORFLOW_HOME python=3.5
-$TENSORFLOW_HOME/bin/pip install -r software/requirements.txt
+$TENSORFLOW_HOME/bin/conda install -y -p $TENSORFLOW_HOME ipykernel
+$TENSORFLOW_HOME/bin/pip install -r software/tensorflow_env.txt
 
 mkdir -p $JUPYTER_DATA_DIR/kernels/tensorflow-1.0-py3
 
