@@ -2,7 +2,7 @@
 
 /software/jupyter/
 /software/jupyter_data/
-/software/tensorflow-1.0/
+/software/tensorflow-cpu/
 
 /software/pyspark/
 /software/spark-2.1.0-bin-hadoop2.7/

@@ -12,8 +12,7 @@ curl -k -L -O https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_6
 bash Miniconda3-latest-MacOSX-x86_64.sh -b -f -p $JUPYTER_HOME
 rm -f Miniconda3-latest-MacOSX-x86_64.sh
 
-$JUPYTER_HOME/bin/conda update -y conda
-$JUPYTER_HOME/bin/conda update -y pip
+$JUPYTER_HOME/bin/conda update -y --all
 
 rm -rf $JUPYTER_DATA_DIR
 mkdir -p $JUPYTER_DATA_DIR
@@ -27,10 +26,10 @@ $JUPYTER_HOME/bin/conda create -y -p $TENSORFLOW_HOME python=3.5
 $TENSORFLOW_HOME/bin/conda install -y -p $TENSORFLOW_HOME ipykernel
 $TENSORFLOW_HOME/bin/pip install -r software/tensorflow_env.txt
 
-mkdir -p $JUPYTER_DATA_DIR/kernels/tensorflow-1.0-py3
+mkdir -p $JUPYTER_DATA_DIR/kernels/tensorflow
 
 echo "{
- \"display_name\": \"TensorFlow 1.0 (CPU, Python 3)\",
+ \"display_name\": \"Python 3 (TensorFlow CPU)\",
  \"language\": \"python\",
  \"argv\": [
   \"$TENSORFLOW_HOME/bin/python\",
@@ -39,4 +38,4 @@ echo "{
   \"-f\",
   \"{connection_file}\"
  ]
-}" > $JUPYTER_DATA_DIR/kernels/tensorflow-1.0-py3/kernel.json
+}" > $JUPYTER_DATA_DIR/kernels/tensorflow/kernel.json

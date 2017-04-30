@@ -24,7 +24,7 @@ $PYSPARK_HOME/bin/conda install -y -p $PYSPARK_HOME ipykernel
 mkdir -p $PYSPARK_KERNEL
 
 echo "{
- \"display_name\": \"Spark 2.0 (Python 3)\",
+ \"display_name\": \"Python 3 (Spark)\",
  \"language\": \"python\",
  \"argv\": [
   \"$PYSPARK_HOME/bin/python\",
