@@ -18,7 +18,7 @@ rm -rf $JUPYTER_DATA_DIR
 mkdir -p $JUPYTER_DATA_DIR
 $JUPYTER_HOME/bin/conda install -y jupyter
 
-# TensorFlow 1.0 (TensorBoard)
+# TensorFlow (TensorBoard)
 
 rm -rf $TENSORFLOW_HOME
 
