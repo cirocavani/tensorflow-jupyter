@@ -22,7 +22,7 @@ $JUPYTER_HOME/bin/conda install -y jupyter
 
 rm -rf $TENSORFLOW_HOME
 
-$JUPYTER_HOME/bin/conda create -y -p $TENSORFLOW_HOME python=3.5
+$JUPYTER_HOME/bin/conda create -y -p $TENSORFLOW_HOME python=3.6
 $TENSORFLOW_HOME/bin/conda install -y -p $TENSORFLOW_HOME ipykernel
 $TENSORFLOW_HOME/bin/pip install -r software/tensorflow_env.txt
 
