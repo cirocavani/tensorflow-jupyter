@@ -1,7 +1,7 @@
 #!/bin/bash
 set -eu
 
-cd `dirname "$0"`/..
+cd $(dirname "$0")/..
 source conf/env.sh
 
 SPARK_HOME=$PROJECT_HOME/software/spark-2.1.1-bin-hadoop2.7
