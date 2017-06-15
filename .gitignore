@@ -1,8 +1,10 @@
+/.cache/
 **/.ipynb_checkpoints/
 
 /software/jupyter/
 /software/jupyter_data/
 /software/tensorflow-cpu/
+/software/tensorflow-*/
 
 /software/pyspark/
 /software/spark-2.1.1-bin-hadoop2.7/

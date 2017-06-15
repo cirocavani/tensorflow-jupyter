@@ -4,19 +4,41 @@ set -eu
 cd $(dirname "$0")
 source conf/env.sh
 
+mkdir -p .cache
+
+PLATFORM="$(uname -s | tr 'A-Z' 'a-z')"
+
+
 # Python install
+
+case $PLATFORM in
+    linux)
+        CONDA_PKG=Miniconda3-4.3.21-Linux-x86_64.sh
+        ;;
+    darwin)
+        CONDA_PKG=Miniconda3-4.3.21-MacOSX-x86_64.sh
+        ;;
+    *)
+        echo "Unsupported platform: $PLATFORM"
+        exit 1
+esac
+
+if [ ! -f .cache/$CONDA_PKG ]; then
+    curl -k -L \
+        https://repo.continuum.io/miniconda/$CONDA_PKG \
+        -o .cache/$CONDA_PKG
+fi
 
 rm -rf $JUPYTER_HOME
 
-curl -k -L -O https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
-bash Miniconda3-latest-MacOSX-x86_64.sh -b -f -p $JUPYTER_HOME
-rm -f Miniconda3-latest-MacOSX-x86_64.sh
+bash .cache/$CONDA_PKG -b -f -p $JUPYTER_HOME
 
 $JUPYTER_HOME/bin/conda update -y --all
 
 rm -rf $JUPYTER_DATA_DIR
 mkdir -p $JUPYTER_DATA_DIR
 $JUPYTER_HOME/bin/conda install -y jupyter
+
 
 # TensorFlow (TensorBoard)
 
@@ -26,7 +48,9 @@ $JUPYTER_HOME/bin/conda create -y -p $TENSORFLOW_HOME python=3.6
 $TENSORFLOW_HOME/bin/conda install -y -p $TENSORFLOW_HOME ipykernel
 $TENSORFLOW_HOME/bin/pip install -r software/tensorflow_env.txt
 
-mkdir -p $JUPYTER_DATA_DIR/kernels/tensorflow
+TENSORFLOW_KERNEL=$JUPYTER_DATA_DIR/kernels/tensorflow
+
+mkdir -p $TENSORFLOW_KERNEL
 
 echo "{
  \"display_name\": \"Python 3 (TensorFlow CPU)\",
@@ -38,4 +62,4 @@ echo "{
   \"-f\",
   \"{connection_file}\"
  ]
-}" > $JUPYTER_DATA_DIR/kernels/tensorflow/kernel.json
+}" > $TENSORFLOW_KERNEL/kernel.json
