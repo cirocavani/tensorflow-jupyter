@@ -48,12 +48,13 @@ $JUPYTER_HOME/bin/conda create -y -p $TENSORFLOW_HOME python=3.6
 $TENSORFLOW_HOME/bin/conda install -y -p $TENSORFLOW_HOME ipykernel
 $TENSORFLOW_HOME/bin/pip install -r software/tensorflow_env.txt
 
-TENSORFLOW_KERNEL=$JUPYTER_DATA_DIR/kernels/tensorflow
+TF_NAME=$(basename $TENSORFLOW_HOME)
+TENSORFLOW_KERNEL=$JUPYTER_DATA_DIR/kernels/$TF_NAME
 
 mkdir -p $TENSORFLOW_KERNEL
 
 echo "{
- \"display_name\": \"Python 3 (TensorFlow CPU)\",
+ \"display_name\": \"Python 3 ($TF_NAME)\",
  \"language\": \"python\",
  \"argv\": [
   \"$TENSORFLOW_HOME/bin/python\",

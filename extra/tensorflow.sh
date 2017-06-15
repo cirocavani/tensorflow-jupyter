@@ -9,7 +9,7 @@ source conf/env.sh
 TF_NAME=$1
 TF_WHEEL=$2
 
-TF_HOME=software/$TF_NAME
+TF_HOME=$PROJECT_HOME/software/$TF_NAME
 
 rm -rf $TF_HOME
 
