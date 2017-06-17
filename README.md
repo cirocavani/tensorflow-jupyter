@@ -1,21 +1,23 @@
 # TensorFlow Jupyter
 
-Ambiente de desenvolvimento para TensorFlow com Jupyter.
+TensorFlow Development Environment with Jupyter.
 
-...
+## Setup
 
-Setup do Projeto:
+Install Conda, Jupyter and TensorFlow.
 
 ```sh
 ./setup.sh
 ```
 
-Executando o Jupyter:
+## Run
+
+Run Jupyter Notebook (web).
 
 ```sh
-bin/jupyter
+bin/jupyter-notebook
 ```
 
-Acessando o Jupyter:
+URL:
 
 http://localhost:8888/

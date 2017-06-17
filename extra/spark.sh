@@ -18,7 +18,7 @@ mkdir -p $SPARK_HOME
 tar zxf spark-2.1.1-bin-hadoop2.7.tgz --strip-components=1 -C $SPARK_HOME
 rm -rf spark-2.1.1-bin-hadoop2.7.tgz
 
-$JUPYTER_HOME/bin/conda create -y -p $PYSPARK_HOME python=3.6
+$CONDA_HOME/bin/conda create -y -p $PYSPARK_HOME python=3.6
 $PYSPARK_HOME/bin/conda install -y -p $PYSPARK_HOME ipykernel
 
 mkdir -p $PYSPARK_KERNEL

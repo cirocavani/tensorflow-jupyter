@@ -1,7 +1,7 @@
 /.cache/
 **/.ipynb_checkpoints/
 
-/software/jupyter/
+/software/conda/
 /software/jupyter_data/
 /software/tensorflow-cpu/
 /software/tensorflow-*/

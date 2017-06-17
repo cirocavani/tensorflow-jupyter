@@ -4,4 +4,4 @@ set -eu
 cd $(dirname "$0")/..
 source conf/env.sh
 
-$CONDA_HOME/bin/jupyter console --kernel=tensorflow $@
+$CONDA_HOME/bin/jupyter lab --notebook-dir=workspace $@

@@ -4,4 +4,4 @@ set -eu
 cd $(dirname "$0")/..
 source conf/env.sh
 
-$JUPYTER_HOME/bin/jupyter notebook --notebook-dir=workspace $@
+$CONDA_HOME/bin/jupyter notebook --notebook-dir=workspace $@

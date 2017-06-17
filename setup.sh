@@ -13,10 +13,10 @@ PLATFORM="$(uname -s | tr 'A-Z' 'a-z')"
 
 case $PLATFORM in
     linux)
-        CONDA_PKG=Miniconda3-4.3.22-Linux-x86_64.sh
+        CONDA_PKG=Miniconda3-4.3.21-Linux-x86_64.sh
         ;;
     darwin)
-        CONDA_PKG=Miniconda3-4.3.22-MacOSX-x86_64.sh
+        CONDA_PKG=Miniconda3-4.3.21-MacOSX-x86_64.sh
         ;;
     *)
         echo "Unsupported platform: $PLATFORM"
@@ -29,22 +29,22 @@ if [ ! -f .cache/$CONDA_PKG ]; then
         -o .cache/$CONDA_PKG
 fi
 
-rm -rf $JUPYTER_HOME
+rm -rf $CONDA_HOME
 
-bash .cache/$CONDA_PKG -b -f -p $JUPYTER_HOME
+bash .cache/$CONDA_PKG -b -f -p $CONDA_HOME
 
-$JUPYTER_HOME/bin/conda update -y --all
+$CONDA_HOME/bin/conda update -y --all
 
 rm -rf $JUPYTER_DATA_DIR
 mkdir -p $JUPYTER_DATA_DIR
-$JUPYTER_HOME/bin/conda install -y jupyter
-
+$CONDA_HOME/bin/conda install -y jupyter
+$CONDA_HOME/bin/conda install -y -c conda-forge jupyterlab
 
 # TensorFlow (TensorBoard)
 
 rm -rf $TENSORFLOW_HOME
 
-$JUPYTER_HOME/bin/conda create -y -p $TENSORFLOW_HOME python=3.6
+$CONDA_HOME/bin/conda create -y -p $TENSORFLOW_HOME python=3.6
 $TENSORFLOW_HOME/bin/conda install -y -p $TENSORFLOW_HOME ipykernel
 $TENSORFLOW_HOME/bin/pip install -r software/tensorflow_env.txt
 

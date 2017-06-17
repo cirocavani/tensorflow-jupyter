@@ -13,7 +13,7 @@ TF_HOME=$PROJECT_HOME/software/$TF_NAME
 
 rm -rf $TF_HOME
 
-$JUPYTER_HOME/bin/conda create -y -p $TF_HOME python=3.6
+$CONDA_HOME/bin/conda create -y -p $TF_HOME python=3.6
 $TF_HOME/bin/conda install -y -p $TF_HOME ipykernel
 $TF_HOME/bin/pip install -r software/tensorflow_env.txt
 $TF_HOME/bin/pip install --ignore-installed $TF_WHEEL
