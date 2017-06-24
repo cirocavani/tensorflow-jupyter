@@ -4,4 +4,7 @@ set -eu
 cd $(dirname "$0")/..
 source conf/env.sh
 
-$TENSORFLOW_HOME/bin/tensorboard --logdir=workspace $@
+LOG_DIR=$1
+shift
+
+$TENSORFLOW_HOME/bin/tensorboard --logdir=workspace/$LOG_DIR $@
