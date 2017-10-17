@@ -13,10 +13,10 @@ PLATFORM="$(uname -s | tr 'A-Z' 'a-z')"
 
 case $PLATFORM in
     linux)
-        CONDA_PKG=Miniconda3-4.3.21-Linux-x86_64.sh
+        CONDA_PKG=Miniconda3-4.3.27.1-Linux-x86_64.sh
         ;;
     darwin)
-        CONDA_PKG=Miniconda3-4.3.21-MacOSX-x86_64.sh
+        CONDA_PKG=Miniconda3-4.3.27.1-MacOSX-x86_64.sh
         ;;
     *)
         echo "Unsupported platform: $PLATFORM"
@@ -33,12 +33,13 @@ rm -rf $CONDA_HOME
 
 bash .cache/$CONDA_PKG -b -f -p $CONDA_HOME
 
+$CONDA_HOME/bin/conda update -y conda
 $CONDA_HOME/bin/conda update -y --all
 
 rm -rf $JUPYTER_DATA_DIR
 mkdir -p $JUPYTER_DATA_DIR
 $CONDA_HOME/bin/conda install -y jupyter
-$CONDA_HOME/bin/conda install -y -c conda-forge jupyterlab
+$CONDA_HOME/bin/conda install -y jupyterlab
 
 # TensorFlow (TensorBoard)
 
