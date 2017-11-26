@@ -38,16 +38,29 @@ $CONDA_HOME/bin/conda update -y --all
 
 rm -rf $JUPYTER_DATA_DIR
 mkdir -p $JUPYTER_DATA_DIR
-$CONDA_HOME/bin/conda install -y jupyter
-$CONDA_HOME/bin/conda install -y jupyterlab
+$CONDA_HOME/bin/conda install -y jupyter jupyterlab
 
-# TensorFlow (TensorBoard)
+# TensorFlow
 
 rm -rf $TENSORFLOW_HOME
 
 $CONDA_HOME/bin/conda create -y -p $TENSORFLOW_HOME python=3.6
-$TENSORFLOW_HOME/bin/conda install -y -p $TENSORFLOW_HOME ipykernel
-$TENSORFLOW_HOME/bin/pip install -r software/tensorflow_env.txt
+$CONDA_HOME/bin/conda install -y -p $TENSORFLOW_HOME \
+    ipykernel \
+    tensorflow \
+    scikit-learn \
+    matplotlib \
+    scipy \
+    requests \
+    bokeh \
+    pandas \
+    nltk \
+    pillow
+$CONDA_HOME/bin/conda install -y -p $TENSORFLOW_HOME \
+    -c conda-forge \
+    scikit-optimize \
+    xgboost
+$TENSORFLOW_HOME/bin/pip install gym
 
 TF_NAME=$(basename $TENSORFLOW_HOME)
 TENSORFLOW_KERNEL=$JUPYTER_DATA_DIR/kernels/$TF_NAME

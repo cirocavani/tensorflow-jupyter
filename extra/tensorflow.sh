@@ -14,9 +14,22 @@ TF_HOME=$PROJECT_HOME/software/$TF_NAME
 rm -rf $TF_HOME
 
 $CONDA_HOME/bin/conda create -y -p $TF_HOME python=3.6
-$TF_HOME/bin/conda install -y -p $TF_HOME ipykernel
-$TF_HOME/bin/pip install -r software/tensorflow_env.txt
-$TF_HOME/bin/pip install --ignore-installed $TF_WHEEL
+$CONDA_HOME/bin/conda install -y -p $TF_HOME \
+    ipykernel \
+    scikit-learn \
+    matplotlib \
+    scipy \
+    requests \
+    bokeh \
+    pandas \
+    nltk \
+    pillow
+$CONDA_HOME/bin/conda install -y -p $TF_HOME \
+    -c conda-forge \
+    scikit-optimize \
+    xgboost
+$TF_HOME/bin/pip install gym
+$TF_HOME/bin/pip install $TF_WHEEL
 
 TF_KERNEL=$JUPYTER_DATA_DIR/kernels/$TF_NAME
 
