@@ -4,7 +4,7 @@ set -eu
 cd $(dirname "$0")/..
 source conf/env.sh
 
-SPARK_VERSION=2.2.0
+SPARK_VERSION=2.2.1
 SPARK_BIN_NAME=spark-$SPARK_VERSION-bin-hadoop2.7
 SPARK_PKG=$SPARK_BIN_NAME.tgz
 SPARK_HOME=$PROJECT_HOME/software/$SPARK_BIN_NAME
@@ -17,7 +17,7 @@ rm -rf $PYSPARK_KERNEL
 
 if [ ! -f .cache/$SPARK_PKG ]; then
     curl -k -L \
-        http://d3kbcqa49mib13.cloudfront.net/$SPARK_PKG \
+        https://archive.apache.org/dist/spark/spark-$SPARK_VERSION/$SPARK_PKG \
         -o .cache/$SPARK_PKG
 fi
 
@@ -26,12 +26,12 @@ mkdir -p $SPARK_HOME
 tar zxf .cache/$SPARK_PKG --strip-components=1 -C $SPARK_HOME
 
 $CONDA_HOME/bin/conda create -y -p $PYSPARK_HOME python=3.6
-$PYSPARK_HOME/bin/conda install -y -p $PYSPARK_HOME ipykernel
+$CONDA_HOME/bin/conda install -y -p $PYSPARK_HOME ipykernel
 
 mkdir -p $PYSPARK_KERNEL
 
 echo "{
- \"display_name\": \"Python 3 (Spark)\",
+ \"display_name\": \"Spark\",
  \"language\": \"python\",
  \"argv\": [
   \"$PYSPARK_HOME/bin/python\",

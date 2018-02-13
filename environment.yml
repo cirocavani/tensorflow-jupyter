@@ -1,0 +1,17 @@
+channels:
+    - conda-forge
+dependencies:
+    - python=3.6
+    - ipykernel
+    - scikit-learn
+    - matplotlib
+    - scipy
+    - requests
+    - bokeh
+    - pandas
+    - nltk
+    - pillow
+    - scikit-optimize
+    - xgboost
+    - pip:
+        - gym

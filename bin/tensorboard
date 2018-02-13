@@ -7,4 +7,4 @@ source conf/env.sh
 LOG_DIR=$1
 shift
 
-$TENSORFLOW_HOME/bin/tensorboard --logdir=workspace/$LOG_DIR $@
+$TF_HOME/bin/tensorboard --logdir=workspace/$LOG_DIR $@

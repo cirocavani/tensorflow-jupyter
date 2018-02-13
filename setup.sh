@@ -13,10 +13,10 @@ PLATFORM="$(uname -s | tr 'A-Z' 'a-z')"
 
 case $PLATFORM in
     linux)
-        CONDA_PKG=Miniconda3-4.3.30-Linux-x86_64.sh
+        CONDA_PKG=Miniconda3-4.3.31-Linux-x86_64.sh
         ;;
     darwin)
-        CONDA_PKG=Miniconda3-4.3.30.1-MacOSX-x86_64.sh
+        CONDA_PKG=Miniconda3-4.3.31-MacOSX-x86_64.sh
         ;;
     *)
         echo "Unsupported platform: $PLATFORM"
@@ -42,39 +42,24 @@ $CONDA_HOME/bin/conda install -y jupyter jupyterlab
 
 # TensorFlow
 
-rm -rf $TENSORFLOW_HOME
+rm -rf $TF_HOME
 
-$CONDA_HOME/bin/conda create -y -p $TENSORFLOW_HOME python=3.6
-$CONDA_HOME/bin/conda install -y -p $TENSORFLOW_HOME \
-    ipykernel \
-    tensorflow \
-    scikit-learn \
-    matplotlib \
-    scipy \
-    requests \
-    bokeh \
-    pandas \
-    nltk \
-    pillow
-$CONDA_HOME/bin/conda install -y -p $TENSORFLOW_HOME \
-    -c conda-forge \
-    scikit-optimize \
-    xgboost
-$TENSORFLOW_HOME/bin/pip install gym
+$CONDA_HOME/bin/conda env create -p $TF_HOME -f environment.yml
+$TF_HOME/bin/pip install tensorflow
 
-TF_NAME=$(basename $TENSORFLOW_HOME)
-TENSORFLOW_KERNEL=$JUPYTER_DATA_DIR/kernels/$TF_NAME
+TF_NAME=$(basename $TF_HOME)
+TF_KERNEL=$JUPYTER_DATA_DIR/kernels/$TF_NAME
 
-mkdir -p $TENSORFLOW_KERNEL
+mkdir -p $TF_KERNEL
 
 echo "{
- \"display_name\": \"Python 3 ($TF_NAME)\",
+ \"display_name\": \"$TF_NAME\",
  \"language\": \"python\",
  \"argv\": [
-  \"$TENSORFLOW_HOME/bin/python\",
+  \"$TF_HOME/bin/python\",
   \"-c\",
   \"from ipykernel.kernelapp import main; main()\",
   \"-f\",
   \"{connection_file}\"
  ]
-}" > $TENSORFLOW_KERNEL/kernel.json
+}" > $TF_KERNEL/kernel.json

@@ -13,22 +13,7 @@ TF_HOME=$PROJECT_HOME/software/$TF_NAME
 
 rm -rf $TF_HOME
 
-$CONDA_HOME/bin/conda create -y -p $TF_HOME python=3.6
-$CONDA_HOME/bin/conda install -y -p $TF_HOME \
-    ipykernel \
-    scikit-learn \
-    matplotlib \
-    scipy \
-    requests \
-    bokeh \
-    pandas \
-    nltk \
-    pillow
-$CONDA_HOME/bin/conda install -y -p $TF_HOME \
-    -c conda-forge \
-    scikit-optimize \
-    xgboost
-$TF_HOME/bin/pip install gym
+$CONDA_HOME/bin/conda env create -p $TF_HOME -f environment.yml
 $TF_HOME/bin/pip install $TF_WHEEL
 
 TF_KERNEL=$JUPYTER_DATA_DIR/kernels/$TF_NAME
@@ -36,7 +21,7 @@ TF_KERNEL=$JUPYTER_DATA_DIR/kernels/$TF_NAME
 mkdir -p $TF_KERNEL
 
 echo "{
- \"display_name\": \"Python 3 ($TF_NAME)\",
+ \"display_name\": \"$TF_NAME\",
  \"language\": \"python\",
  \"argv\": [
   \"$TF_HOME/bin/python\",
