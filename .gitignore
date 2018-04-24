@@ -3,8 +3,7 @@
 
 /software/conda/
 /software/jupyter_data/
-/software/tensorflow-cpu/
 /software/tensorflow-*/
 
 /software/pyspark/
-/software/spark-2.2.1-bin-hadoop2.7/
+/software/spark-*/
