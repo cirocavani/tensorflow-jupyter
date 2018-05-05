@@ -13,10 +13,10 @@ PLATFORM="$(uname -s | tr 'A-Z' 'a-z')"
 
 case $PLATFORM in
     linux)
-        CONDA_PKG=Miniconda3-4.4.10-Linux-x86_64.sh
+        CONDA_PKG=Miniconda3-4.5.1-Linux-x86_64.sh
         ;;
     darwin)
-        CONDA_PKG=Miniconda3-4.4.10-MacOSX-x86_64.sh
+        CONDA_PKG=Miniconda3-4.5.1-MacOSX-x86_64.sh
         ;;
     *)
         echo "Unsupported platform: $PLATFORM"
